@@ -1,0 +1,173 @@
+
+.edit{
+    color:white;
+    font-size: 12px;
+    min-width:60px;
+    height:20px;
+    background-color:#003fef;
+    text-align: center;
+    line-height: 20px;
+    font-family: arial;
+    float:left;
+    margin-left:10px;
+    border-radius:2px;
+    padding:5px;
+	text-decoration:none;
+	transition: 0.3s all;
+}
+
+.delete{
+    color:white;
+    font-size: 12px;
+    min-width:60px;
+    height:20px;
+    background-color:#ff0000;
+    text-align: center;
+    line-height: 20px;
+    font-family: arial;
+    float:left;
+    border-radius:2px;
+    margin-left:10px;
+    margin-right:20px;
+	text-decoration:none;
+    padding:5px;
+	transition: 0.3s all;
+}
+
+
+.edit:hover:not(.active){
+    background-color: #0033aa;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+.delete:hover:not(.active){
+    background-color: #ca0000;
+	border-radius:5px;
+	cursor: pointer;
+}
+
+th{
+    padding:10px;
+	margin-left:auto;
+	margin-right:auto;
+}
+tr{
+	border: 1px solid #ddd;
+	text-align:center;
+}	
+
+tr:nth-child(even) {
+    background-color: #cfcfcf;
+}
+tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    /*border: 0px solid #cfcfcf;**/
+    font-family: arial;
+    font-size: 12px;
+    padding: 10px;
+    padding-top:10px;
+}
+
+.tablestyle{
+	width:100%;
+}
+.barbar{
+	width:100%;
+	font-family: arial;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    background-color: #000;
+    height:50px;
+    float:right;
+    text-decoration: none;
+    text-align:center;
+    line-height:50px;
+}		
+
+.button-allcrud{
+	width:60px;
+	height:50px;
+	float:left;
+	text-decoration:none;
+	background-color: #000;
+	line-height:50px;
+	font-size:20px;
+	text-align:center;
+	color:white;
+	border-bottom:5px;
+    border-bottom-color:black;
+	transition: all 0.1s;
+}	
+
+.button-allcrud:hover{
+	background-color: #e40009; 
+	transition-timing-function: ease-in-out;
+	border-radius:3px;
+}
+
+.barra-principal{
+	width:100%;
+    background-color: #333;
+    height:50px;
+	border-bottom:5px;
+    border-bottom-color:black;
+	transition: all 0.1s;
+}	
+
+.button-plus{
+	width:60px;
+	height:50px;
+	background-color:#000;
+	float:right;
+	text-decoration:none;
+	line-height:50px;
+	font-size:30px;
+	text-align:center;
+	color:white;
+	border-bottom:5px;
+    border-bottom-color:black;
+	transition: all 0.1s;
+}	
+
+.button-plus:hover{
+	background-color:#0b0;
+	transition-timing-function: ease-in-out;
+	border-radius:3px;
+}		
+
+.barcrud{
+	max-width:300px;
+	min-height:100%;
+	background-color:#000;
+	float:left;
+	margin-left:25px;
+	border-radius:4px;
+}
+
+.crudbutton{
+	width:300px;
+	height:70px;
+	line-height:70px;
+	text-align:center;
+	background-color:#000;
+	font-family: 'Arial', Serif;
+	font-size:16px;
+	font-weight:bold;
+	border-radius:4px;
+	color:white;
+	float:left;
+	transition: 0.3s all;
+}
+
+.crudbutton:hover:not(.active){
+	background-color:#111;
+}	
