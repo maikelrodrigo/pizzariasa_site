@@ -3,23 +3,17 @@
 	$user = "root";
 	$passwd = "";
 	$base = "phpBanco";
-	$conexao = @mysql_connect($host,$user, $passwd);
 
-if (!$conexao) {
-	$mensagem = "Nao foi possivel estabelecer a conexao";
-	echo $mensagem . "<hr>";
-	die(mysql_error());
-	}
-	
-$db = mysql_select_db($base,$conexao);
-mysql_query("SET NAMES 'utf8'");
-mysql_query('SET character_set_connection=utf8');
-mysql_query('SET character_set_client=utf8');
-mysql_query('SET character_set_results=utf8');
-
-if (!$db) {
- 	$mensagem = "Nao foi possivel encontrar o banco de dados";
-	echo $mensagem . "<hr>";
-	die(mysql_error());
-	}
-?> 
+$link = mysqli_connect($host,$user, $passwd, $base);
+ 
+if (!$link) {
+    echo "Error: Falha ao conectar-se com o banco de dados MySQL." . PHP_EOL;
+    echo "Debugging errno: " . mysqli_connect_errno() . PHP_EOL;
+    echo "Debugging error: " . mysqli_connect_error() . PHP_EOL;
+    exit;
+}
+ 
+echo "Sucesso: Sucesso ao conectar-se com a base de dados MySQL." . PHP_EOL;
+ 
+mysqli_close($link);
+?>
