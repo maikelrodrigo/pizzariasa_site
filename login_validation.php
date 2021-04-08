@@ -7,11 +7,11 @@
 	
 	echo "$query";
 	
-	$resultQuery = mysql_query($query);
+	$resultQuery = mysqli_query($link, $query);
 
-if(mysql_num_rows($resultQuery) > 0 ){
+if(mysqli_num_rows($resultQuery) > 0 ){
 		
-		while($result = mysql_fetch_assoc($resultQuery)){
+		while($result = mysqli_fetch_assoc($resultQuery)){
 			$resultBanco[1] = $result['id'];
 			$resultBanco[2] = utf8_encode($result['usuario']);
 			$resultBanco[3] = utf8_encode($result['nome_completo']);

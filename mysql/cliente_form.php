@@ -3,8 +3,8 @@ include("conectar.php");
 if(isset($_GET['id'])){
 $query = "select * from cliente where id=".$_GET['id'];
 
-$resultQuery = mysql_query($query);
-while($result = mysql_fetch_assoc($resultQuery)){
+$resultQuery = mysqli_query($link, $query);
+while($result = mysqli_fetch_assoc($resultQuery)){
 	$resultBanco[1] = $result['id'];
 	$resultBanco[2] = utf8_encode($result['nome']);
 }

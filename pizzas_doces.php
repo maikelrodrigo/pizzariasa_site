@@ -3,7 +3,7 @@
 
 	$query_pizzas = "select * from pizza";
 
-	$resultQuery = mysql_query($query_pizzas);
+	$resultQuery = mysqli_query($link, $query_pizzas);
 ?>
 <html>
 	<head>
@@ -136,7 +136,7 @@
 			<div class=pdtlayout>
 				<div class=produtos>
 					<?php	
-					while($result = mysql_fetch_assoc($resultQuery)){
+					while($result = mysqli_fetch_assoc($resultQuery)){
 						$resultBanco[1] = $result['id'];
 						$resultBanco[2] = utf8_encode($result['nome']);
 						$resultBanco[3] = utf8_encode($result['tipo']);

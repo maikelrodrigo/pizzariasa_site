@@ -3,7 +3,7 @@
 	include("conectar.php");
 	//inicia sessão pra validar segurança
 	session_start();
-	if(!(isset($_SESSION['id']) || $_SESSION['tipo'] == "ADMIN")){
+	if(!(isset($_SESSION['id']))){
 		//header("location:login_form.php");
 		exit();
 	}
@@ -24,8 +24,8 @@
 	if($id == ""){
 		//Teste para ver se o nome de usuário já está sendo usado.
 		$query="SELECT * FROM cliente WHERE usuario='$usuario'";
-		$rsult=mysql_query($query);     
-		$count=mysql_num_rows ($rsult); 
+		$rsult=mysqli_query($link, $query);     
+		$count=mysqli_num_rows ($rsult); 
 		//Se já existir uma linha com esse nome de usuário retornará para o index.php
 		if($count>=1){
 			//header("location:index.php"); 
@@ -36,8 +36,8 @@
 		}
 	}else{
 		$query="SELECT * FROM cliente WHERE usuario='$usuario'";
-		$rsult=mysql_query($query);     
-		$count=mysql_num_rows ($rsult); 
+		$rsult=mysqli_query($link, $query);     
+		$count=mysqli_num_rows ($rsult); 
 		//Se já existir uma linha com esse nome de usuário retornará para o index.php
 		if($count>=1){
 			//header("location:index.php"); 
@@ -57,16 +57,16 @@
 			//tira a extensão da imagem
 			preg_match("/\.(gif|bmp|png|jpg|jpeg){1}$/i", $foto["name"], $ext);
 			//grava no banco (sem imagem)
-			mysql_query($query);
+			mysqli_query($link, $query);
 			//pega o ultimo id inserido (caso necessário)
-			$id = ($id != "" ? $id : mysql_insert_id());
+			$id = ($id != "" ? $id : mysqli_insert_id());
 			//concatena id do usuario no nome da imagem + extensão
 			$nome_imagem = $id." - usuario." . $ext[1];
 			$nome_imagem_delete = $id." - usuario." . $ext[1];
 			//query pra gravar a imagem
 			$query = "update cliente set foto='$nome_imagem' where id=$id";
 			//grava a imagem no banco
-			mysql_query($query);
+			mysqli_query($link, $query);
 			//especificação do caminho da imagem
 			$caminho_imagem = "images/usuario/" . $nome_imagem;
 			$caminho_imagem_delete = "images/usuario/" . $nome_imagem_delete;
@@ -81,9 +81,8 @@
 		//else quando n foi enviado imagem
 	}else{
 		//grava no banco o insert ou update lá de cima
-		mysql_query($query);
+		mysqli_query($link, $query);
 	}
-	//tchau :3
 	//header("location:crud_clientes.php");
 	exit();
 ?>

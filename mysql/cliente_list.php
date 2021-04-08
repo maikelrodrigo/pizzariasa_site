@@ -3,7 +3,7 @@ include("conectar.php");
 
 $query = "select * from cliente";
 
-$resultQuery = mysql_query($query);
+$resultQuery = mysqli_query($link, $query);
 
 echo "<a href='cliente_form.php'><button>Novo</button></a>";
 echo "<br>";
@@ -24,7 +24,7 @@ AÇÕES
 </tr>
 ";
 
-while($result = mysql_fetch_assoc($resultQuery)){
+while($result = mysqli_fetch_assoc($resultQuery)){
 	$resultBanco[1] = $result['id'];
 	$resultBanco[2] = utf8_encode($result['nome']);
 	
